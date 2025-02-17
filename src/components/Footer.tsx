@@ -7,30 +7,33 @@ interface NewslatterType{
 }
 export  function Footer(){
   const [isPending, startTransition] = useTransition()
-
-    function ValidacaoEmail(event:FormEvent<HTMLFormElement>){
-      event.preventDefault()
-      const data = new FormData(event.currentTarget)
-      const email = String(data.get("email"))
-      if(!email) return alert("isira o seu email")
-        const EmailData: NewslatterType = {
-          email
-      }
-      startTransition(()=> SendEmail(EmailData))
+// validacao do dados 
+  function ValidacaoEmail(event:FormEvent<HTMLFormElement>){
+    event.preventDefault()
+    const data = new FormData(event.currentTarget)
+    const email = String(data.get("email"))
+    if(!email) return alert("isira o seu email")
+      const EmailData: NewslatterType = {
+        email
     }
+    startTransition(()=> SendEmail(EmailData))
+//limpar o fomulario apos o envio
+    event.currentTarget.reset()
+  }
    
   
 
-    async  function SendEmail(slatter:NewslatterType){
-       try {
-         const response = await api.post("/newslatter")
-         console.log(response.data)
-       
-       } catch (error) {
-          alert("impossivel enviar")
-       }
+  async  function SendEmail({email}:NewslatterType){
+    try {
+      const response = await api.post("/newslatter", {email})
+      console.log(response.data)
+    
+    } catch (error) {
+      alert("impossivel enviar")
     }
-    return(
+  }
+
+  return(
         <>
         <footer className="w-full flex flex-col items-center bg-gray-900 text-white py-10">
   {/* Newsletter */}
@@ -39,7 +42,7 @@ export  function Footer(){
       <h1 className="text-2xl md:text-3xl font-bold">Mantenha-se atualizado</h1>
       <p className="text-gray-200">Subscreva no nosso Newslatter e mantenha-se sempre atualizado.</p>
     </div>
-    <form className="flex flex-col sm:flex-row items-center gap-3 w-full max-w-lg"  onSubmit={ValidacaoEmail}>
+    <form className="flex flex-col sm:flex-row items-center gap-3 w-full max-w-lg" method="post"  onSubmit={ValidacaoEmail}>
       <input 
         type="email" 
         placeholder="Insira seu email" 
