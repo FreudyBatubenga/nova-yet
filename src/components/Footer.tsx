@@ -1,6 +1,35 @@
+import { FormEvent ,useTransition } from "react"
 import ft from "../../public/assets/icon/banner-logo.svg"
 import Image from "next/image"
+import { api } from "@/app/service/api"
+interface NewslatterType{
+  email: string
+}
 export  function Footer(){
+  const [isPending, startTransition] = useTransition()
+
+    function ValidacaoEmail(event:FormEvent<HTMLFormElement>){
+      event.preventDefault()
+      const data = new FormData(event.currentTarget)
+      const email = String(data.get("email"))
+      if(!email) return alert("isira o seu email")
+        const EmailData: NewslatterType = {
+          email
+      }
+      startTransition(()=> SendEmail(EmailData))
+    }
+   
+  
+
+    async  function SendEmail(slatter:NewslatterType){
+       try {
+         const response = await api.post("/newslatter")
+         console.log(response.data)
+       
+       } catch (error) {
+          alert("impossivel enviar")
+       }
+    }
     return(
         <>
         <footer className="w-full flex flex-col items-center bg-gray-900 text-white py-10">
@@ -10,13 +39,14 @@ export  function Footer(){
       <h1 className="text-2xl md:text-3xl font-bold">Mantenha-se atualizado</h1>
       <p className="text-gray-200">Subscreva no nosso Newslatter e mantenha-se sempre atualizado.</p>
     </div>
-    <form className="flex flex-col sm:flex-row items-center gap-3 w-full max-w-lg">
+    <form className="flex flex-col sm:flex-row items-center gap-3 w-full max-w-lg"  onSubmit={ValidacaoEmail}>
       <input 
         type="email" 
         placeholder="Insira seu email" 
         className="w-full sm:w-2/3 p-3 rounded-md outline-none text-gray-900"
+        name="email"
       />
-      <button className="bg-bgbutton text-white w-full sm:w-1/3 p-3 rounded-md">Enviar</button>
+      <button className="bg-bgbutton text-white w-full sm:w-1/3 p-3 rounded-md"  disabled={isPending}> {isPending ? "enviando..." : "Enviar"}</button>
     </form>
   </div>
 

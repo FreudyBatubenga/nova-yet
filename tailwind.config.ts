@@ -19,6 +19,7 @@ export default {
         logoutbtn:'#DF9696',
         labelBack:'#6942FC',
         editarperfilbtn:'#6942FC4D',
+        searchback: '#E7E7E7FE',
         eliminarconta:'#FF00004D',
         background: "var(--background)",
         foreground: "var(--foreground)",
