@@ -1,12 +1,61 @@
 'use client'
 import { ChevronRight, ChevronDown } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export function Faq() {
-  const [isRespostaOpen, setIsRespostaOpen] = useState(false);
-  const [isRespostaOpen2, setIsRespostaOpen2] = useState(false);
-  const [isterceiro, setIsterceiro] = useState(false);
-  const [isQuartoipuntshow, setIsQuartoipuntshow] = useState(false);
+   // Controle de perguntas abertas
+  const [isRespostaOpen, setIsRespostaOpen] = useState<{ [key: number]: boolean }>({});
+  // Armazenar as FAQs
+  const [faqData, setFaqData] = useState<any[]>([]); 
+   // Controle de carregamento
+  const [loading, setLoading] = useState(true);
+   // Armazenar erros, se houver
+  const [error, setError] = useState<string | null>(null);
+
+  // Função para buscar as FAQs da API
+  const fetchFaqData = async () => {
+    try {
+      const response = await fetch("http://localhost:9000/faqs");
+
+      // Verificar se a resposta foi bem-sucedida
+      if (!response.ok) {
+        throw new Error(`Erro ao buscar FAQs: ${response.status}`);
+      }
+
+      const data = await response.json();
+      // Atualiza o estado com as FAQs recebidas
+      setFaqData(data); 
+    } catch (err: any) {
+      console.error("Erro ao buscar dados da FAQ:", err);
+      // Define o erro caso ocorra
+      setError(err.message); 
+    } finally {
+      setLoading(false); // Finaliza o carregamento
+    }
+  };
+
+  // Carregar as FAQs quando o componente for montado
+  useEffect(() => {
+    fetchFaqData();
+  }, []);
+
+  // Se está carregando, exibe uma mensagem
+  if (loading) {
+    return <div>Carregando...</div>;
+  }
+
+  // Se houve um erro, exibe o erro
+  if (error) {
+    return <div>Erro: {error}</div>;
+  }
+
+  // Função para alternar o estado de visibilidade das respostas
+  const toggleResposta = (id: number) => {
+    setIsRespostaOpen((prevState) => ({
+      ...prevState,
+      [id]: !prevState[id],
+    }));
+  };
 
   return (
     <div className="w-[90%] max-w-[890px] h-[450] mt-20 flex flex-col items-center gap-7 px-4 sm:px-6 ">
@@ -19,57 +68,30 @@ export function Faq() {
       </div>
 
       <div className="flex w-full h-auto flex-col items-center gap-5">
-        {/* Primeira pergunta */}
-        <div className="space-y-4 w-full max-w-[715px]">
-          <div className="w-full flex items-center gap-3 cursor-pointer" onClick={() => setIsRespostaOpen(!isRespostaOpen)}>
-            {isRespostaOpen ? <ChevronDown size={20}  fill="#000" /> : <ChevronRight size={20}  fill="#000" />}
-            <p className="font-bold  text-black">Quem são vocês e o que fazem?</p>
-          </div>
-          {isRespostaOpen && (
-            <div className="w-full max-w-[600px]">
-              <p className=" text-black">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+        {faqData.length > 0 ? (
+          faqData.map((faq: any) => (
+            <div key={faq.id} className="space-y-4 w-full max-w-[715px]">
+              <div
+                className="w-full flex items-center gap-3 cursor-pointer"
+                onClick={() => toggleResposta(faq.id)}
+              >
+                {isRespostaOpen[faq.id] ? (
+                  <ChevronDown size={20} fill="#000" />
+                ) : (
+                  <ChevronRight size={20} fill="#000" />
+                )}
+                <p className="font-bold text-black">{faq.pergunta}</p>
+              </div>
+              {isRespostaOpen[faq.id] && (
+                <div className="w-full max-w-[600px]">
+                  <p className="text-black">{faq.resposta}</p>
+                </div>
+              )}
             </div>
-          )}
-        </div>
-
-        {/* Segunda pergunta */}
-        <div className="space-y-4 w-full max-w-[715px]">
-          <div className="w-full flex items-center gap-3 cursor-pointer" onClick={() => setIsRespostaOpen2(!isRespostaOpen2)}>
-            {isRespostaOpen2 ? <ChevronDown size={20} fill="#000"/> : <ChevronRight size={20} fill="#000" />}
-            <p className="font-bold text-black">Quanto tempo demora o processo de tratamento?</p>
-          </div>
-          {isRespostaOpen2 && (
-            <div className="w-full max-w-[600px]">
-              <p className=" text-black">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-            </div>
-          )}
-        </div>
-
-        {/* Terceira pergunta */}
-        <div className="space-y-4 w-full max-w-[715px]">
-          <div className="w-full flex items-center gap-3 cursor-pointer" onClick={() => setIsterceiro(!isterceiro)}>
-            {isterceiro ? <ChevronDown size={20}  fill="#000" /> : <ChevronRight size={20}  fill="#000" />}
-            <p className="font-bold  text-black">Como é feito o pagamento dos serviços prestados?</p>
-          </div>
-          {isterceiro && (
-            <div className="w-full max-w-[600px]  text-black">
-              <p  className=" text-black">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-            </div>
-          )}
-        </div>
-
-        {/* Quarta pergunta */}
-        <div className="space-y-4 w-full max-w-[715px]">
-          <div className="w-full flex items-center gap-3 cursor-pointer" onClick={() => setIsQuartoipuntshow(!isQuartoipuntshow)}>
-            {isQuartoipuntshow ? <ChevronDown size={20}  fill="#000" /> : <ChevronRight size={20}  fill="#000" />}
-            <p className="font-bold  text-black">Quais são os documentos que essa plataforma me ajuda a tratar?</p>
-          </div>
-          {isQuartoipuntshow && (
-            <div className="w-full max-w-[600px]">
-              <p className=" text-black">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-            </div>
-          )}
-        </div>
+          ))
+        ) : (
+          <p className="text-center text-black">Não há perguntas frequentes disponíveis no momento.</p>
+        )}
       </div>
     </div>
   );

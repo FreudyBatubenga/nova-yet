@@ -1,31 +1,4 @@
-/*'use-client'
-import Image from "next/image"
-import Logo from "../../public/assets/icon/Logo 3.svg"
-export function Header(){
-    return(
-        <header className='h-28 w-full  '>
-            <div className="w-[90%] h-full flex justify-between items-center mx-auto">
-                <div>
-                    <Image src={Logo} alt='logo' width={150} height={150} priority />
-                </div>
 
-                <div className="flex items-center space-x-10">
-                    <ul className='flex space-x-10'>
-                        <li className=' font-extralight hover:text-primary '>inicio</li>
-                        <li className=' font-extralight  hover:text-primary '>Quem somos</li>
-                        <li className=' font-extralight  hover:text-primary '>serviços</li>
-                    </ul>
-                </div>
-                <div className="w-[200]  justify-between flex items-center ">
-                    <button className='font-bold  text-primary px-3'>Entrar</button>
-                    <button className='bg-bgbutton w-32 h-10 rounded-3xl '>cadastrar</button>
-                </div>
-            </div>
-        </header>
-    )
-
-}
-    */
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
@@ -47,7 +20,7 @@ export  function Header() {
         {/* Menu Desktop */}
         <nav className="hidden md:flex items-center space-x-10">
           <ul className="flex space-x-10">
-            <li className="font-extralight hover:text-primary cursor-pointer text-black">Início</li>
+          <Link href="#section">  <li className="font-extralight hover:text-primary cursor-pointer text-black">Início</li></Link>
             <li className="font-extralight hover:text-primary cursor-pointer  text-black">Quem somos</li>
             <li className="font-extralight hover:text-primary cursor-pointer  text-black">Serviços</li>
           </ul>

@@ -2,7 +2,7 @@ import Image from "next/image";
 import AboutUS from "../../public/assets/image/about-us.png"
 export function About() {
     return (
-     <div className="w-full max-w-6xl mx-auto flex flex-co h-[800]l md:flex-row items-center justify-between mt-20 px-4 flex-col">
+     <div className="w-full max-w-6xl mx-auto flex flex-co h-[800]l md:flex-row items-center justify-between mt-20 px-4 flex-col" id="#section"> 
   {/* Imagem */}
   <div className="w-full md:w-1/2 flex justify-center mb-10">
     <Image src={AboutUS} width={500} height={300} alt="about" className="max-w-full h-auto"/>

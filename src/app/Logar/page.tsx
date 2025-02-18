@@ -5,6 +5,7 @@ import { EyeOff, X ,ArrowLeft ,Lock, AtSign} from "lucide-react";
 import Image from "next/image";
 import hero from "../../../public/assets/image/Rectangle 102.png";
 import logo from "../../../public/assets/icon/Logo 3.svg"
+import { api } from "../service/api";
 
 interface LoginClientType{
     email: string
@@ -21,8 +22,19 @@ export default function Logando(){
             const senha = String(data.get("senha"))
 
             if(!email || !senha)return alert("preencha todos os campos")
+                startTransition(()=>authUser({email,senha}))
 
-                    }//  <p className="text-right text-btn text-xs" >Esqueci a minha senha</p>
+                    }
+
+                 async   function authUser(data: LoginClientType){
+                        try {
+                            const response = await api.get(`/ ${data.email}/${data.senha}`)
+                              window.location.href = "/Agendar"
+                        } catch (error) {
+                            alert("Impossivel logar, tente mais tarde")
+                        }
+
+                    }
 
     return(
         <div className=" w-full  bg-slate-50 h-screen flex items-center justify-center">
@@ -68,7 +80,6 @@ export default function Logando(){
                             </button>
                         </div>
                         <div className="w-[560] h-20  flex  flex-col text-center  ">
-                            <Link href='/providerlog' className="text-btn">Login do prestador</Link>
                         </div>
                     </div>
             </form>
