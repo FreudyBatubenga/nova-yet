@@ -2,6 +2,7 @@ import {Bell,StickyNote,MapPin,Star,Calendar,X,LogOut} from "lucide-react"
 import LogoMarca from "../../public/assets/icon/banner-logo.svg"
 import Usser from "../../public/assets/image/Ellipse 2.png"
 import Image from "next/image";
+import Formulario from "./Formulario";
 import { useState } from "react";
 import Link from "next/link";
 export function HeaderTwo(){
@@ -14,6 +15,28 @@ export function HeaderTwo(){
     function OpenModal(){
         setIsopne(true)
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     return(
         <main className="w-full flex items-center flex-col h-[500] bg-bgbutton  bg-cover bg-[url('../../public/assets/image/two.png')] bg-center bg-no-repeat "> 
         
@@ -40,30 +63,31 @@ export function HeaderTwo(){
                 <div className="w-full h-[185] justify-center flex items-center ">
               
 
-                <form className="w-[1032] h-[185] bg-primary top-28 z-auto translate-y-32   rounded-xl flex items-center justify-center gap-5  " >
-                    <div className="flex flex-col gap-4">
-                        <p className="text-xs font-bold text-white">Tipo de documento</p>
-                        <div className="flex gap-4  bg-white w-[261] h-[60] items-center px-1 rounded-xl">
-                            < StickyNote/>
-                            <input placeholder="Bilhete de identidade" className="outline-none"/>
-                        </div>
-                    </div>
-                    <div className="flex flex-col gap-4">
-                        <p className="text-xs font-bold text-white">Provincia</p>
-                        <div className="flex gap-4 bg-white w-[261] h-[60] items-center px-1 rounded-xl">
-                            <  MapPin/>
-                            <input placeholder="Luanda" className="outline-none"/>
-                        </div>
-                    </div>
-                    <div className="flex flex-col gap-4">
-                        <p className="text-xs font-bold text-white">Municipio</p>
-                        <div className="flex gap-4  bg-white w-[261] h-[60] items-center px-1 rounded-xl">
-                            <MapPin/>
-                            <input placeholder="Cazenga" className="outline-none"/>
-                        </div>
-                    </div>
-                    <button className="w-[152] h-[60] bg-bgbutton rounded-md mt-6  text-white">Buscar</button>
-                </form>
+<Formulario/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 </div>
                 {Isopen ?   ( <div className="w-[380] h-[450] bg-white    rounded-xl items-center flex flex-col  absolute top-0  translate-x-3/4  left-1/2 translate-y-24" >
                     <div className="w-[360] h-20 flex items-center justify-around ">

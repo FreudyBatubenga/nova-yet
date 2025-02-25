@@ -28,7 +28,7 @@ export default function Logando(){
 
                  async   function authUser(data: LoginClientType){
                         try {
-                            const response = await api.get(`/ ${data.email}/${data.senha}`)
+                            const response = await api.get(`/usuarios/login/ ${data.email}/${data.senha}`)
                               window.location.href = "/Agendar"
                         } catch (error) {
                             alert("Impossivel logar, tente mais tarde")

@@ -1,3 +1,4 @@
+import {ArrowRight} from "lucide-react"
 export function Centros() {
     return (
         <main className="w-[65%] min-h-screen items-center justify-center py-5 grid-cols-3 grid">
@@ -13,8 +14,8 @@ export function Centros() {
                 </div>
                 <div className=" flex justify-between items-baseline w-full p-5">
                     <span className="font-bold text-white" >476 <span className="font-extralight text-black">vagas disponiveis</span></span>
-                    <div className="w-11 h-11 bg-white rounded-xl">
-
+                    <div className="w-11 h-11 bg-white rounded-xl items-center flex justify-center">
+                    <ArrowRight/>
                     </div>
                 </div>
             </div>
@@ -31,8 +32,8 @@ export function Centros() {
                 </div>
                 <div className=" flex justify-between items-baseline w-full p-5">
                     <span className="font-bold text-white" >476 <span className="font-extralight text-black">vagas disponiveis</span></span>
-                    <div className="w-11 h-11 bg-white rounded-xl">
-
+                    <div className="w-11 h-11 bg-white rounded-xl items-center flex justify-center">
+                        <ArrowRight/>
                     </div>
                 </div>
             </div>
@@ -51,8 +52,8 @@ export function Centros() {
                 </div>
                 <div className=" flex justify-between items-baseline w-full p-5">
                     <span className="font-bold text-white" >476 <span className="font-extralight text-black">vagas disponiveis</span></span>
-                    <div className="w-11 h-11 bg-white rounded-xl">
-
+                    <div className="w-11 h-11 bg-white rounded-xl items-center flex justify-center">
+                    <ArrowRight/>
                     </div>
                 </div>
             </div>
@@ -69,8 +70,8 @@ export function Centros() {
                 </div>
                 <div className=" flex justify-between items-baseline w-full p-5">
                     <span className="font-bold text-white" >476 <span className="font-extralight text-black">vagas disponiveis</span></span>
-                    <div className="w-11 h-11 bg-white rounded-xl">
-
+                    <div className="w-11 h-11 bg-white rounded-xl items-center flex justify-center">
+                    <ArrowRight/>
                     </div>
                 </div>
             </div>
@@ -87,8 +88,8 @@ export function Centros() {
                 </div>
                 <div className=" flex justify-between items-baseline w-full p-5">
                     <span className="font-bold text-white" >476 <span className="font-extralight text-black">vagas disponiveis</span></span>
-                    <div className="w-11 h-11 bg-white rounded-xl">
-
+                    <div className="w-11 h-11 bg-white rounded-xl items-center flex justify-center">
+                    <ArrowRight/>
                     </div>
                 </div>
             </div>
@@ -105,8 +106,8 @@ export function Centros() {
                 </div>
                 <div className=" flex justify-between items-baseline w-full p-5">
                     <span className="font-bold text-white" >476 <span className="font-extralight text-black">vagas disponiveis</span></span>
-                    <div className="w-11 h-11 bg-white rounded-xl">
-
+                    <div className="w-11 h-11 bg-white rounded-xl items-center flex justify-center">
+                    <ArrowRight/>
                     </div>
                 </div>
             </div>
