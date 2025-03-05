@@ -16,6 +16,8 @@ export default function Agendar(){
             <About/>
             <Separate/>
             <Faq/>
+
+            
             <Footer/>
 
 

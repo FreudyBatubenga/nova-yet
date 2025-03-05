@@ -15,27 +15,6 @@ export function HeaderTwo(){
     function OpenModal(){
         setIsopne(true)
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     
     return(
         <main className="w-full flex items-center flex-col h-[500] bg-bgbutton  bg-cover bg-[url('../../public/assets/image/two.png')] bg-center bg-no-repeat "> 
@@ -61,33 +40,7 @@ export function HeaderTwo(){
                 </div> 
                 
                 <div className="w-full h-[185] justify-center flex items-center ">
-              
-
-<Formulario/>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                    <Formulario/>
                 </div>
                 {Isopen ?   ( <div className="w-[380] h-[450] bg-white    rounded-xl items-center flex flex-col  absolute top-0  translate-x-3/4  left-1/2 translate-y-24" >
                     <div className="w-[360] h-20 flex items-center justify-around ">

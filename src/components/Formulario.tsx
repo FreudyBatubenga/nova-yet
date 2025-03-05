@@ -6,6 +6,14 @@ const Formulario = () => {
     const [provincia, setProvincia] = useState("");
     const [municipio, setMunicipio] = useState("");
     const [error, setError] = useState("");
+    const [Isopen , setIsopne] = useState(false)
+
+    function closeModal(){
+        setIsopne(false) 
+    }
+    function OpenModal(){
+        setIsopne(true)
+    }
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -16,7 +24,7 @@ const Formulario = () => {
         const municipioTrimmed = municipio.trim();
 
         if (!docTrimmed || !provinciaTrimmed || !municipioTrimmed) {
-            setError("Todos os campos devem ser preenchidos corretamente.");
+            setError("preencha os campos.");
             return;
         }
 
@@ -38,10 +46,12 @@ const Formulario = () => {
     };
 
     return (
+        
         <form
             className="w-[1032px] h-[185px] bg-primary top-28 z-auto translate-y-32 rounded-xl flex items-center justify-center gap-5"
             onSubmit={handleSubmit}
         >
+            
             <div className="flex flex-col gap-4">
                 <p className="text-xs font-bold text-white">Tipo de documento</p>
                 <div className="flex gap-4 bg-white w-[261px] h-[60px] items-center px-1 rounded-xl">
@@ -50,6 +60,7 @@ const Formulario = () => {
                         value={documento}
                         onChange={handleChangeDocumento}
                         className="outline-none w-full "
+                        name="documento"
                     >
                         <option value="" disabled selected>
                             Selecione o tipo de documento
@@ -99,13 +110,14 @@ const Formulario = () => {
                 </div>
             </div>
 
-            {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+            
             <button
                 type="submit"
                 className="w-[152px] h-[60px] bg-bgbutton rounded-md mt-6 text-white"
             >
                 Buscar
             </button>
+            {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
         </form>
     );
 };

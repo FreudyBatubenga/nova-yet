@@ -23,6 +23,8 @@ export default {
         eliminarconta:'#FF00004D',
         background: "var(--background)",
         foreground: "var(--foreground)",
+        inputbackground:"#213D33A1",
+        inputbtncolorAgendar:"#213D33"
       },
       backgroundImage:{
         infoLinearCards:"linear-gradient(180deg, #EFFCFF 0%, #FFFFFF 100%)"

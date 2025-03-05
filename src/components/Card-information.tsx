@@ -48,6 +48,7 @@ export function CardInformation(){
             Icon={Search} 
             subtitle="Encontre rapidamente o que precisa com nossa ferramenta de busca otimizada para facilitar o acesso às informações." 
           />
+     
         </div>
       </main>
       
