@@ -39,7 +39,7 @@ export function Centros() {
                     <p className="text-bgbutton">Luanda, Sao Paulo</p>
                     <span className="text-bgbutton">Seg - Sex / 08h - 15h</span>
                 </div>
-                <div className=" flex justify-between items-baseline w-full p-5">
+                <div className=" flex justify-between items-baseline w-full p-5">¬
                     <span className="font-bold text-white" >476 <span className="font-extralight text-black">vagas disponiveis</span></span>
                     <div className="w-11 h-11 bg-white rounded-xl items-center flex justify-center">
                         <ArrowRight/>
@@ -123,7 +123,7 @@ export function Centros() {
             </div>
         {Isopen ? (
             <div  className="fixed inset-0 bg-black bg-opacity-50 z-[100]  items-center flex justify-center">
-                <div className=" w-[600]  h-[477] bg-white rounded-3xl flex flex-col justify-center items-center gap-10 " >
+                <div className=" w-[600]  h-[577] bg-white rounded-3xl flex flex-col justify-center items-center gap-10 " >
                     <div className=" w-full h-[100] px-5 py-5 flex justify-between ">
                         <div>
                             <h1 className="text-2xl">Faça sua marcação </h1>
@@ -135,9 +135,10 @@ export function Centros() {
                         
                     </div>
                     <form action="" className="flex flex-col gap-2 justify-center items-center mb-5">
-                    <input type="email" name="email" id="email"  placeholder=" insira seu email" className=" h-[70] w-[540] rounded-xl p-2 outline-none  bg-inputbackground"/>
-                    <input type="email" name="email" id="email"  placeholder=" insira seu email" className=" h-[70] w-[540] rounded-xl p-2 outline-none  bg-inputbackground"/>
-                    <input type="email" name="email" id="email"  placeholder=" insira seu email" className=" h-[70] w-[540] rounded-xl p-2 outline-none  bg-inputbackground"/>
+                    <input type="text" name="email" id="email"  placeholder=" Nome do utente" className=" h-[70] w-[540] rounded-xl p-2 outline-none  bg-inputbackground"/>
+                    <input type="text" name="email" id="email"  placeholder=" Casa de Registro" className=" h-[70] w-[540] rounded-xl p-2 outline-none  bg-inputbackground"/>
+                    <input type="date" name="email" id="email"  placeholder=" dd/mm/aa" className=" h-[70] w-[540] rounded-xl p-2 outline-none  bg-inputbackground"/>
+                    <input type="text" name="email" id="email"  placeholder=" tipo de decomuneto" className=" h-[70] w-[540] rounded-xl p-2 outline-none  bg-inputbackground"/>
                     <button  className="w-[540] h-[70]   bg-inputbtncolorAgendar rounded-xl text-white transition-colors font-bold"   >
                         Enviar
                     </button>
