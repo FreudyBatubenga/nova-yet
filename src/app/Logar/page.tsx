@@ -90,7 +90,7 @@ export default function Logando() {
                             className={`w-full sm:w-[480px] h-[70px] bg-bgbutton rounded-xl text-white transition-colors font-bold ${isPending ? "bg-btn2/50" : "bg-btn2"}`}
                             disabled={isPending}
                         >
-                            {isPending ? "Carregando" : "Enviar"}
+                            {isPending ? "Carregando" : "Entrar"}
                         </button>
                     </div>
                     <div className="w-[500px] h-20 flex flex-col text-center"></div>

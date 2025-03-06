@@ -129,7 +129,7 @@ export default function Cadastrar() {
           {/* Adicionando o espaçamento entre os inputs e o botão */}
           <div className="mt-4 w-full sm:w-[560px] h-[70px] px-3">
             <button className="w-full h-[70px] rounded-xl p-7 bg-bgbutton text-white">
-              Enviar
+              cadastrar
             </button>
           </div>
         </form>
